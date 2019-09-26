@@ -27,15 +27,15 @@ public:
 	virtual bool Intersect(Ray& ray) override
 	{
 		// --- PUT YOUR CODE HERE ---
-		float numerator = m_normal.dot(m_origin - ray.org);
-		float denominator = m_normal.dot(ray.dir);
+		float n = m_normal.dot(m_origin - ray.org);
+		float d = m_normal.dot(ray.dir);
 		float t;
 
-		if (denominator == 0){
+		if (d == 0){
 			return 0;
 		}
 		else{
-			t = numerator / denominator;
+			t = n / d;
 		}
 
 		if (t < Epsilon || t > ray.t){

@@ -25,16 +25,16 @@ public:
 	virtual bool Intersect(Ray &ray) override
 	{
 		// --- PUT YOUR CODE HERE ---
-		float a = ray.dir.dot(ray.dir);
-		float b = 2 * ray.dir.dot(ray.org - m_center);
-		float c = (ray.org - m_center).dot(ray.org - m_center) - m_radius * m_radius;
+		float x = ray.dir.dot(ray.dir);
+		float y = 2 * ray.dir.dot(ray.org - m_center);
+		float z = (ray.org - m_center).dot(ray.org - m_center) - m_radius * m_radius;
 
-		float test = b * b - (4 * a * c);
+		float test = y * y - (4 * x * z);
 		if (test < 0){
 			return false;
 		} 
 
-		float t = ((-b) + sqrt(test)) / a;
+		float t = ((-y) + sqrt(test)) / x;
 
 		if (t < Epsilon || t > ray.t){
 			return false;

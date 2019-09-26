@@ -25,9 +25,9 @@ Mat RenderFrame(ICamera& camera)
 		for (int x = 0; x < img.cols; x++) {
 			
 			// Initialize your ray here
-			if (!camera.InitRay(x, y, ray)){
+			if (!camera.InitRay(x, y, ray))
 				continue;
-			}
+			
 			
 			// Your code
 			
@@ -39,9 +39,9 @@ Mat RenderFrame(ICamera& camera)
 			 */
 			
 			// Your code
-			for(auto object : objetcs){
-				if (object->Intersect(ray)){
-					col = object->getcolor();
+			for(auto tempObject : objetcs){
+				if (tempObject->Intersect(ray)){
+					col = tempObject->getcolor();
 				}
 			}
 
